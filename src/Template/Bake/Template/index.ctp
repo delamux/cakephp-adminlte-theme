@@ -78,12 +78,25 @@ if (!in_array($field, ['created', 'modified', 'updated'])) :%>
     }
   }
   $pk = '$' . $singularVar . '->' . $primaryKey[0];
-%>
-                <td class="actions" style="white-space:nowrap">
-                  <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>], ['class'=>'btn btn-info btn-xs']) ?>
-                  <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>], ['class'=>'btn btn-warning btn-xs']) ?>
-                  <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Confirm to delete this entry?'), 'class'=>'btn btn-danger btn-xs']) ?>
-                </td>
+                  <td class="actions">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><?= __('Actions')?>
+                              <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                              <li> <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?></li>
+                              <li> <?= $this->Html->link(__('Change password'), ['action' => 'changePassword', <%= $pk %>]) ?></li>
+                              <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
+                              </li>
+                              <li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], [
+                                  'confirm' => __('Are you sure you want to delete # {0}?',  <%= $pk %>),
+                                  'class' => 'btn-danger',
+                                  'style' => 'color: white;'
+                                  ]) ?>
+                              </li>
+                          </ul>
+                      </div>
+                  </td>
               </tr>
             <?php endforeach; ?>
             </tbody>
