@@ -78,6 +78,7 @@ if (!in_array($field, ['created', 'modified', 'updated'])) :%>
     }
   }
   $pk = '$' . $singularVar . '->' . $primaryKey[0];
+%>
                   <td class="actions">
                       <div class="btn-group">
                           <button type="button" class="btn btn-xs btn-info dropdown-toggle" data-toggle="dropdown"><?= __('Actions')?>
