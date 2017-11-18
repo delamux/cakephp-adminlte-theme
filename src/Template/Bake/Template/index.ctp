@@ -11,10 +11,20 @@ $fields = collection($fields)
 <section class="content-header">
   <h1>
     <%= $pluralHumanName %>
-    <div class="pull-right"><?= $this->Html->link(__('New'), ['action' => 'add'], ['class'=>'btn btn-success btn-xs']) ?></div>
   </h1>
 </section>
-
+<div class="col-md-2">
+    <?=
+    $this->Html->link(
+        $this->Html->tag('i', '', ['class' => 'fa fa-plus']). __('New'),
+        ['action' => 'add'],
+        [
+            'class'=>'btn btn-app bg-olive',
+            'escape' => false
+        ]
+    );
+    ?>
+</div>
 <!-- Main content -->
 <section class="content">
   <div class="row">
@@ -22,20 +32,10 @@ $fields = collection($fields)
       <div class="box">
         <div class="box-header">
           <h3 class="box-title"><?= __('List of') ?> <%= $pluralHumanName %></h3>
-          <div class="box-tools">
-            <form action="<?php echo $this->Url->build(); ?>" method="POST">
-              <div class="input-group input-group-sm"  style="width: 180px;">
-                <input type="text" name="search" class="form-control" placeholder="<?= __('Fill in to start search') ?>">
-                <span class="input-group-btn">
-                <button class="btn btn-info btn-flat" type="submit"><?= __('Filter') ?></button>
-                </span>
-              </div>
-            </form>
-          </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
+        <div class="box-body">
+          <table class="table table-bordered table-hover table-striped table-condensed dataTable">
             <thead>
               <tr>
 <%  foreach ($fields as $field):
@@ -86,7 +86,7 @@ if (!in_array($field, ['created', 'modified', 'updated'])) :%>
                           </button>
                           <ul class="dropdown-menu" role="menu">
                               <li> <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?></li>
-                              <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
+                              <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>]) ?>
                               </li>
                               <li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], [
                                   'confirm' => __('Are you sure you want to delete # {0}?',  <%= $pk %>),
