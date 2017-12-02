@@ -85,8 +85,9 @@ if (!in_array($field, ['created', 'modified', 'updated'])) :%>
                               <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu" role="menu">
-                              <li> <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?></li>
+                              <li><?= $this->Html->link(__('Add'), ['action' => 'add', <%= $pk %>]) ?>
                               <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>]) ?>
+                              <li> <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?></li>
                               </li>
                               <li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], [
                                   'confirm' => __('Are you sure you want to delete # {0}?',  <%= $pk %>),

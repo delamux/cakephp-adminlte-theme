@@ -18,6 +18,7 @@
 <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <?php echo $this->Html->css('AdminLTE.skins/skin-'. Configure::read('Theme.skin') .'.min'); ?>
+    <?php echo $this->Html->css('app'); ?>
 
     <?php echo $this->fetch('css'); ?>
 
