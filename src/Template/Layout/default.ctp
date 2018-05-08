@@ -18,9 +18,12 @@
 <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <?php echo $this->Html->css('AdminLTE.skins/skin-'. Configure::read('Theme.skin') .'.min'); ?>
+    <?php echo $this->Html->css('AdminLTE/override'); ?>
     <?php echo $this->Html->css('app'); ?>
 
+    <?php echo $this->fetch('css-top'); ?>
     <?php echo $this->fetch('css'); ?>
+    <?php echo $this->fetch('css-bottom'); ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

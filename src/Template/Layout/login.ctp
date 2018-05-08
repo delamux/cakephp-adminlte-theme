@@ -17,6 +17,7 @@
   <?php echo $this->Html->css('AdminLTE.AdminLTE.min'); ?>
   <!-- iCheck -->
   <?php echo $this->Html->css('AdminLTE./plugins/iCheck/square/blue'); ?>
+  <?php echo $this->Html->css('AdminLTE.override'); ?>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,46 +27,49 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?php echo $this->Url->build(array('controller' => 'pages', 'action' => 'display', 'home')); ?>"><?php echo Configure::read('Theme.logo.large'); ?></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg"><?php echo __('Sign in to start your session') ?></p>
-    <p> <?php echo $this->Flash->render(); ?> </p>
-    <p> <?php echo $this->Flash->render('auth'); ?> </p>
-
-<?php echo $this->fetch('content'); ?>
-
-    <?php
-    if (Configure::read('Theme.login.show_social')) {
-        ?>
-        <div class="social-auth-links text-center">
-          <p>- <?php echo __('OR') ?> -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> <?php echo __('Sign in using Facebook') ?></a>
-          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> <?php echo __('Sign in using Google+') ?></a>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="<?php echo $this->Url->build(array('controller' => 'pages', 'action' => 'display', 'home')); ?>"><?php echo Configure::read('Theme.logo.large'); ?></a>
         </div>
-        <?php
-    }
-    ?>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">
+                <?php echo __('Sign in to start your session') ?>
+            </p>
+            <p> <?php echo $this->Flash->render(); ?> </p>
+            <p> <?php echo $this->Flash->render('auth'); ?> </p>
 
-    <?php
-    if (Configure::read('Theme.login.show_remember')) {
-        ?>
-        <a href="#"><?php echo __('I forgot my password') ?></a><br>
-        <?php
-    }
-    if (Configure::read('Theme.login.show_register')) {
-        ?>
-        <a href="#" class="text-center"><?php echo __('Register a new membership') ?></a>
-        <?php
-    }
-    ?>
+            <?php echo $this->fetch('content'); ?>
+        </div>
+        <!-- /.login-box-body -->
 
-  </div>
-  <!-- /.login-box-body -->
-</div>
+
+
+        <?php
+        if (Configure::read('Theme.login.show_social')) {
+            ?>
+            <div class="social-auth-links text-center">
+              <p>- <?php echo __('OR') ?> -</p>
+              <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> <?php echo __('Sign in using Facebook') ?></a>
+              <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> <?php echo __('Sign in using Google+') ?></a>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        if (Configure::read('Theme.login.show_remember')) {
+            ?>
+            <a href="#"><?php echo __('I forgot my password') ?></a><br>
+            <?php
+        }
+        if (Configure::read('Theme.login.show_register')) {
+            ?>
+            <a href="#" class="text-center"><?php echo __('Register a new membership') ?></a>
+            <?php
+        }
+        ?>
+    </div>
 <!-- /.login-box -->
 
 <!-- jQuery 2.2.3 -->

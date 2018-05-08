@@ -1,0 +1,17 @@
+.login-box, .register-box {
+    width: 450px;
+}
+.login-fields label,
+.login-fields input{
+    display: block !important;
+    color: #003f54;
+}
+.login-fields input#password {
+    margin-bottom: 40px;
+}
+.login-fields .checkbox {
+    margin-left: 0;
+}
+.login-fields .checkbox label{
+    height: auto;
+}
